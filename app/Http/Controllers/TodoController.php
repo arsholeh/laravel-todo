@@ -50,17 +50,38 @@ class TodoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
-    {
-        //
+    public function show($id)
+    {   
+        return view ('todo.edit', [
+            'todo' => Todo::where('id', $id)->first()
+            
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(Request $request, $id)
     {
-        //
+        $todo = Todo::where('id',$id);
+
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+        
+        if (isset($request['complete'])){
+            $todo->update([
+                'name' => $data['name'],
+                'complete' => 1
+            ]);
+        } else {
+            $todo->update([
+                'name' => $data['name'],
+                'complete' => 0
+            ]);
+        }
+
+        return redirect('/list');
     }
 
     /**

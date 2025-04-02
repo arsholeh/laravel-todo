@@ -23,10 +23,10 @@
                 @if ($todo['complete'] == 0)
                     <td>Pending</td>
                 @else
-                    <td>Pending</td>
+                    <td>Completed</td>
                 @endif
                 <td>
-                    <button class="btn btn-success mb-3">Complete</button>
+                    <a href="/edit/{{ $todo['id'] }}" class="btn btn-success mb-3">Edit</a>
                     <button class="btn btn-danger mb-3">Delete</button>
                 </td>
             </tr>
