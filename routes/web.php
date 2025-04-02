@@ -30,3 +30,5 @@ Route::post('/create', [TodoController::class, 'store']);
 
 Route::get('/edit/{id}', [TodoController::class, 'show']);
 Route::post('/edit/{id}', [TodoController::class, 'edit']);
+
+Route::post('/delete/{id}', [TodoController::class, 'destroy']);

@@ -44,7 +44,7 @@ class TodoController extends Controller
         ]);
         $newTodo->save();
 
-        return redirect('/list');
+        return redirect('/list')->with('success', 'Data berhasil ditambahkan');;
     }
 
     /**
@@ -81,7 +81,7 @@ class TodoController extends Controller
             ]);
         }
 
-        return redirect('/list');
+        return redirect('/list')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -95,8 +95,12 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        $todo = Todo::where('id',$id);
+
+        $todo->delete();
+
+        return redirect('/list')->with('success', 'Data berhasil dihapus');
     }
 }
