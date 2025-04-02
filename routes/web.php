@@ -21,6 +21,7 @@ Route::get('/list', [TodoController::class, 'index']);
 
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/register', [AuthController::class, 'registrasi']);
 Route::post('/register', [AuthController::class, 'createUser']);

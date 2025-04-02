@@ -5,6 +5,21 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center">Sign In</h2>
+                @if (session()->has('LoginError'))                 
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Informasi</strong> {{ session('LoginError') }}
+                        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="close"></button>
+                    </div>
+                 @endif
+
+                 @if (session()->has('SuccessRegister'))
+                 
+                 <div class="alert alert-success alert-dismissible fade show" role="alert">
+                     <strong>Informasi</strong> {{ session('SuccessRegister') }}
+                     <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="close"></button>
+                 </div>
+ 
+                 @endif
                 <form action="/login" method="POST">
                     @csrf
                     <div class="mb-3">

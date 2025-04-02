@@ -46,6 +46,12 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         
-        return redirect('/login')->with('succes', 'Akun Berhasil Didaftarkan');;
+        return redirect('/login')->with('SuccessRegister', 'Akun Berhasil Didaftarkan');
+    }
+
+    public function logout () {
+        Auth::logout();
+        
+        return redirect('/')->with('LogoutSuccess', 'Logout Berhasil');
     }
 }

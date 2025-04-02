@@ -5,14 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center">Registes New User</h2>
-                @if (session()->has('success'))
-                 
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Informasi</strong> {{ session('succes') }}
-                    <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="close"></button>
-                </div>
-
-                @endif
                 <form action="register" method="POST">
                     @csrf
                     <div class="mb-3">
